@@ -1,0 +1,327 @@
+/* ==========================================================================
+   Global Configuration & Base Resets
+   ========================================================================== */
+:root {
+  --color-primary: #3c4852;
+  --color-accent: #dc3545;
+  --color-border: #e2e8f0;
+  --color-veg: #28a745;
+  --color-nonveg: #ff0000;
+  --text-muted: #657786;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #fafafa;
+  color: var(--color-primary);
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+/* ==========================================================================
+   Header Navbar Layout
+   ========================================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid var(--color-border);
+}
+
+.brand-logo {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #475569;
+  margin: 0;
+}
+
+.cart-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.my-orders-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.cart-icon-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-svg {
+  width: 28px;
+  height: 28px;
+  color: #475569;
+}
+
+.cart-badge-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--color-accent);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 14px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Slidable Categories Tab Scroller
+   ========================================================================== */
+.tabs-outer-wrapper {
+  border-bottom: 1px solid var(--color-border);
+  background-color: #ffffff;
+}
+
+.tabs-scroller {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Hides native scrollbar on Firefox */
+}
+
+.tabs-scroller::-webkit-scrollbar {
+  display: none; /* Hides native scrollbar on Chrome, Safari, and Opera */
+}
+
+.tab-item {
+  flex: 1 0 auto;
+  text-align: center;
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-item:hover {
+  color: var(--color-accent);
+}
+
+.tab-active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Dish Card Component List Grid
+   ========================================================================== */
+.menu-items-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dish-card {
+  display: grid;
+  grid-template-columns: 1fr 150px 120px;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+  align-items: start;
+}
+
+/* Details Column */
+.dish-type-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.diet-indicator-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.veg-indicator {
+  border-color: var(--color-veg);
+}
+.non-veg-indicator {
+  border-color: var(--color-nonveg);
+}
+
+.diet-indicator-circle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.veg-indicator .diet-indicator-circle {
+  background-color: var(--color-veg);
+}
+.non-veg-indicator .diet-indicator-circle {
+  background-color: var(--color-nonveg);
+}
+
+.dish-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #1e293b;
+}
+
+.dish-price-tag {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: #334155;
+}
+
+.dish-description-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+/* Stepper Counter Widget */
+.quantity-control-block {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-veg);
+  color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.4rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.qty-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.qty-value {
+  padding: 0 0.5rem;
+  font-weight: 600;
+  min-width: 15px;
+  text-align: center;
+}
+
+.not-available-tag {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.customization-alert {
+  color: #4f46e5;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0.25rem 0 0 0;
+}
+
+/* Calories Column */
+.dish-calories-col {
+  text-align: right;
+  padding-top: 4px;
+}
+
+.calorie-count {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ea580c;
+}
+
+/* Image Assets Column */
+.dish-image-col {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dish-thumbnail {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ==========================================================================
+   📱 Media Query - Optimized Mobile & Tablet UI Breakpoint
+   ========================================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .brand-logo {
+    font-size: 1.15rem;
+  }
+
+  .tab-item {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Transform Grid to a single-column column flow matching the mobile wireframe */
+  .dish-card {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+  }
+
+  /* Reorder columns to display information cleanly */
+  .dish-details-col {
+    order: 1;
+  }
+
+  .dish-calories-col {
+    order: 2;
+    text-align: left; /* Shift alignment for native portrait views */
+    padding: 0;
+    margin-top: -0.25rem;
+  }
+
+  .dish-image-col {
+    order: 3;
+    justify-content: flex-start; /* Keeps the picture matching left-aligned text */
+    margin-top: 0.5rem;
+  }
+
+  .dish-thumbnail {
+    width: 90px;
+    height: 90px;
+  }
+}
